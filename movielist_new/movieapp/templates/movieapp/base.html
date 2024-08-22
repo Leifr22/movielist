@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet"  href="{% static 'movieapp/field.css' %}">
+</head>
+<body>
+
+{% block mainmenu %}
+{% if user.is_authenticated %}
+     <li class="last"> <a href="{% url 'profile' %}">{{user.username}}</a> | <a href="{% url 'logout' %}">Выйти</a></li>
+{% else %}
+     <li class="last"><a href="{% url 'login' %}">Войти</a>|<a href="{% url 'register' %}">Регистрация</a></li>
+{% endif %}
+
+{% endblock mainmenu %}
+{% block content%}
+
+{% endblock %}
+
+{% block navigate %}
+{% endblock %}
+
+</body>
+</html>
